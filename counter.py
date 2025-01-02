@@ -19,7 +19,7 @@ number=0
 def reset():
     global number
     number=0
-    label.config(text="Count=0")
+    label.config(text="Count is Null")
 def on_button_click():
     global number
     number+=1
