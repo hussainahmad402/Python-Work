@@ -20,12 +20,9 @@ def reset():
     global number
     number=0
     label.config(text="Count=0")
-# Create a function to handle button click and generate a random number
 def on_button_click():
-    # Generate a random number between 1 and 100
     global number
     number+=1
-    # Update the label to show the generated random number
     label.config(text=f"Count: {number}",font=("Agdasima",14))
 
 # Create a button that calls the on_button_click function
