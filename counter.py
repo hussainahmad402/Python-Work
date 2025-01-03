@@ -8,7 +8,7 @@ root.configure(bg="black")
 root.geometry("400x400")
 # root.resizable(False, False)
 
-# Create a label to display the random number
+# Create a label to display the counter
 label = tk.Label(root, text="Click to Count", font=("Agdasima", 14), bg="black", fg="white")
 label.pack(pady=20)
 
