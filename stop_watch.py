@@ -14,7 +14,7 @@ running = False
 
 # List of colors to cycle through
 colors = ["#FF2511", "white"]
-color_index = 0  # Keeps track of the current color in the list
+color_index = 0  # Keeps track of the current color in the list 
 
 # Label to display the time
 label = tk.Label(root, text="00:00:00", font=("Agdasima", 35), bg="black", fg="white")
