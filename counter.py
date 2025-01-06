@@ -1,5 +1,4 @@
 import tkinter as tk
-import random  # Import the random module to generate random numbers
 
 # Create the main window
 root = tk.Tk()
