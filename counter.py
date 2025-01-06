@@ -1,5 +1,4 @@
 import tkinter as tk
-
 # Create the main window
 root = tk.Tk()
 root.title("Random Number Generator")
@@ -18,7 +17,7 @@ number=0
 def reset():
     global number
     number=0
-    label.config(text="Count is Null")
+    label.config(text="0")
 def on_button_click():
     global number
     number+=1
