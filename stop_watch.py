@@ -4,7 +4,7 @@ import time
 # Display Setting
 root = tk.Tk()
 root.title("Stop Watch")
-root.geometry("400x450")
+root.geometry("900x550")
 root.configure(bg="black")
 
 # Initialize variables
@@ -13,12 +13,23 @@ elapsed_time = 0
 running = False
 
 # List of colors to cycle through
-colors = ["#FF2511", "white"]
+colors = ["white"]
 color_index = 0  # Keeps track of the current color in the list 
 
-# Label to display the time
+# Label to display the headings
+label_stop_watch = tk.Label(
+    root, text="Stop Watch", font=("Arial", 30, "bold"), fg="#FD7F20", bg="black"
+)
+label_stop_watch.grid(row=0, column=0, padx=120, pady=20, sticky="w")
+
+label_drop_down = tk.Label(
+    root, text="Count Down", font=("Arial", 30, "bold"), fg="#FD7F20", bg="black"
+)
+label_drop_down.grid(row=0, column=1, padx=120, pady=20, sticky="e")
+
+# Label to display the stopwatch time
 label = tk.Label(root, text="00:00:00", font=("Agdasima", 35), bg="black", fg="white")
-label.pack(pady="70 0")
+label.grid(row=1, column=0, columnspan=1, pady=40)
 
 # Function to update the stopwatch and change color every second
 def update_time():
@@ -33,7 +44,7 @@ def update_time():
         color_index = (color_index + 1) % len(colors)  # Move to the next color, looping back to the start
 
         # Update the time every second
-        root.after(1000, update_time)  # Update every 1 second
+        root.after(1000, update_time)
 
 # Start function
 def start():
@@ -41,8 +52,7 @@ def start():
     if not running:
         start_time = time.time()  # Record start time
         running = True
-        update_time()  # Start updating the time
-        # start_button.config(state=tk.DISABLED)  # Disable the start button after starting
+        update_time()
 
 # Stop function
 def stop():
@@ -50,7 +60,6 @@ def stop():
     if running:
         elapsed_time += time.time() - start_time  # Add the elapsed time since start
         running = False
-        start_button.config(state=tk.NORMAL)  # Enable the start button again
 
 # Reset function
 def reset():
@@ -59,19 +68,22 @@ def reset():
     running = False
     color_index = 0  # Reset color index to start from the first color
     label.config(text="00:00:00", fg="white")  # Reset label and color to default
-    start_button.config(state=tk.NORMAL)  # Enable the start button again
 
-# Start Button
-start_button = tk.Button(root, command=start, bg="#FD7F20", text="Start", fg="black", activebackground="#FD7F20", activeforeground="black", width=8, font=("Agdasima", 15,"bold"))
-start_button.pack(pady="50 20")
+# Buttons
+start_button = tk.Button(
+    root, command=start, bg="#FD7F20", text="Start", fg="black", width=8, font=("Agdasima", 15, "bold")
+)
+start_button.grid(row=2, column=0, pady=10)
 
-# Stop Button
-stop_button = tk.Button(root, command=stop, bg="#FD7F20", text="Stop", fg="black", activebackground="#FD7F20", activeforeground="black", width=8, font=("Agdasima", 15,"bold"))
-stop_button.pack(pady="20")
+stop_button = tk.Button(
+    root, command=stop, bg="#FD7F20", text="Stop", fg="black", width=8, font=("Agdasima", 15, "bold")
+)
+stop_button.grid(row=3, column=0, pady=20)
 
-# Reset Button
-reset_button = tk.Button(root, command=reset, bg="#FD7F20", text="Reset", fg="black", activebackground="#FD7F20", activeforeground="black", width=8, font=("Agdasima", 15,"bold"))
-reset_button.pack(pady="20")
+reset_button = tk.Button(
+    root, command=reset, bg="#FD7F20", text="Reset", fg="black", width=8, font=("Agdasima", 15, "bold")
+)
+reset_button.grid(row=4, column=0, columnspan=1, pady=10)
 
 # Running the Program
 root.mainloop()
