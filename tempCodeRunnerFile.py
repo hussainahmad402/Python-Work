@@ -18,35 +18,26 @@ colors = ["white", "red", "green", "blue", "yellow"]
 color_index = 0
 
 # Stopwatch label
-stopwatch_label = tk.Label(
-    root, text="Stopwatch", font=("Arial", 30, "bold"), fg="#FD7F20", bg="black"
-)
+stopwatch_label = tk.Label(root, text="Stopwatch", font=("Arial", 30, "bold"), fg="#FD7F20", bg="black")
 stopwatch_label.grid(row=0, column=0, padx=120, pady=20, sticky="w")
 
 # Countdown label
-countdown_label = tk.Label(
-    root, text="Countdown", font=("Arial", 30, "bold"), fg="#FD7F20", bg="black"
-)
-countdown_label.grid(row=0, column=1, padx=120, pady=(20, 10), sticky="e")
+countdown_label = tk.Label(root, text="Countdown", font=("Arial", 30, "bold"), fg="#FD7F20", bg="black")
+countdown_label.grid(row=0, column=1, padx=120, pady=20, sticky="e")
 
 # Stopwatch time display
-stopwatch_display = tk.Label(
-    root, text="00:00:00", font=("Agdasima", 35), bg="black", fg="white"
-)
-stopwatch_display.grid(row=1, column=0, pady=20)
+stopwatch_display = tk.Label(root, text="00:00:00", font=("Agdasima", 35), bg="black", fg="white")
+stopwatch_display.grid(row=1, column=0, pady=0)
 
 # Countdown time entry and display
-countdown_display = tk.Label(
-    root, text="Enter time:", font=("Agdasima", 15), bg="black", fg="white"
-)
-countdown_display.grid(row=1, column=1, pady=(5, 5))
-countdown_entry = tk.Entry(root, font=("Arial", 14), width=20)
-countdown_entry.grid(row=1, column=2, pady=(5, 20))
+countdown_display = tk.Label(root, text="Enter countdown time (seconds):", font=("Agdasima", 15), bg="black", fg="white")
+countdown_display.grid(row=2, column=1, pady=0)
 
-countdown_timer = tk.Label(
-    root, text="00:00:00", font=("Agdasima", 35), bg="black", fg="white"
-)
-countdown_timer.grid(row=1, column=1, pady=20)
+countdown_entry = tk.Entry(root, font=("Arial", 14), width=20)
+countdown_entry.grid(row=3, column=1, pady=0)
+
+countdown_timer = tk.Label(root, text="00:00:00", font=("Agdasima", 35), bg="black", fg="white")
+countdown_timer.grid(row=4, column=1, pady=20)
 
 # Functions
 def update_stopwatch():
@@ -133,15 +124,17 @@ tk.Button(
 # Buttons for Countdown
 tk.Button(
     root, command=start_countdown, bg="#FD7F20", text="Start", fg="black", width=8, font=("Agdasima", 15, "bold")
-).grid(row=2, column=1, pady=10)
+).grid(row=5, column=1, pady=10)
 
 tk.Button(
     root, command=stop_countdown, bg="#FD7F20", text="Stop", fg="black", width=8, font=("Agdasima", 15, "bold")
-).grid(row=3, column=1, pady=10)
-
+).grid(row=6, column=1, pady=10)
+# Resume button
 tk.Button(
     root, command=resume_countdown, bg="#FD7F20", text="Resume", fg="black", width=8, font=("Agdasima", 15, "bold")
-).grid(row=4, column=1, pady=10)
+).grid(row=7, column=1, pady=10)
+
+
 
 # Run the Program
 root.mainloop()
